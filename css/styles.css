@@ -1,4 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
+   
     background-color: rgba(0, 0, 0, 0.1);
     
     
@@ -24,6 +30,7 @@ h1 {
 
         & input {
             margin-bottom: 10%;
+            margin-left: 20%;
         }
         & input.get {
             background-color: #00aaff;
@@ -56,6 +63,51 @@ h1 {
 }
 
 
+.results-container {
+    max-width: 800px; /* Limita a largura do container */
+    margin: 20px auto; /* Centraliza o container */
+    padding: 20px;
+    background-color: rgba(240, 240, 240, 0.9); /* Fundo claro */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-family: 'Arial', sans-serif; /* Fonte mais legível */
+}
+
+.results-container p {
+    margin: 0; /* Remove margens padrão */
+    padding: 8px 0; /* Adiciona padding para espaçamento */
+}
+
+.results-container table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Remove espaços entre bordas */
+    margin-top: 10px; /* Espaço acima da tabela */
+}
+
+.results-container th, .results-container td {
+    border: 1px solid #ccc; /* Bordas da tabela */
+    padding: 10px; /* Padding interno */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+.results-container th {
+    background-color: #f2f2f2; /* Fundo para cabeçalho da tabela */
+}
+
+.results-container a {
+    color: #007bff; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.results-container a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+.results-container .distro-title {
+    font-size: 1.5em; /* Tamanho maior para o título */
+    font-weight: bold; /* Negrito para o título */
+}
+
 
 
 /* output */
@@ -63,7 +115,21 @@ h1 {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 450px;
+    width: 580px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+#results > span {
+   color: rgba(239, 234, 234, 0.7);
+}
+.btn-toggle {
+    background-color: #cfd3d6;
+    width: 90px;
+    
+}
+button {
+    width: 200px;
+    height: 30px;
+    background-color: #cfd3d6;
 }
