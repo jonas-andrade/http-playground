@@ -1,36 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle HTTP</title>
     <link rel="stylesheet" href="css/styles.css">
-    <title>HTTP Playground</title>
 </head>
 <body>
-    <h1>Http Playground</h1>
-    <main class="main">
-        <section class="controls">
-            <input type="button" name="GET" class="get" value="GET">
-            <input type="button" name="GET" class="head" value="HEAD">
-            <input type="button" name="GET" class="patch" value="PATCH">
-            <input type="button" name="GET" class="put" value="PUT">
-            <input type="button" name="GET" class="post" value="POST">
-            <input type="button" name="GET" class="delete" value="DELETE">
-            <input type="button" name="GET" class="options" value="OPTIONS">
-            <input type="button" name="GET" class="trace" value="TRACE">
-            <input type="button" name="GET" class="connect" value="CONNECT">
-        </section>
-        <section class="output">
-            <div><span id="url">http://exemple.com/distributions/</span></div>
-           
-            <div class="output" id="results" class="results-container"></div>
+    <div class="container">
+        <div class="simulation-banner" id="simulation-banner">
+            Modo de Simulação Ativado
+        </div>
+        <div class="controls">
+            <button id="start-server" onclick="toggleServer()">Servidor Desligado</button>
             
-        </section>
-        <button onclick="showCaseHead_simule()">Simular</button>
-      
-    </main>
+            <div class="http-methods">
+                <button class="get">GET</button>
+                <button class="head">HEAD</button>
+                <button class="patch">PATCH</button>
+                <button class="put">PUT</button>
+                <button class="post">POST</button>
+                <button class="delete">DELETE</button>
+                <button class="options">OPTIONS</button>
+                <button class="trace">TRACE</button>
+                <button class="connect">CONNECT</button>
+                <button class="simulate" onclick="simulateRequest()">Simular</button>
+            </div>
 
-    
+            <div class="params">
+                <label>Query Params:</label>
+                <input type="text" placeholder="Ex: ?name=John">
+                <label>Body Params:</label>
+                <input type="text" placeholder="Ex: { 'name': 'John' }">
+                <label>Router Params:</label>
+                <input type="text" placeholder="Ex: /users/123">
+            </div>
+            <div class="base-url">
+                <label>URL Base:</label>
+                <input type="text" value="http://localhost:8080" readonly>
+            </div>
+        </div>
+        
+        <div class="output">
+            <div id="results">Aguardando resposta...</div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
