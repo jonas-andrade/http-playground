@@ -12,19 +12,19 @@
             Modo de Simulação Ativado
         </div>
         <div class="controls">
-            <button id="start-server" onclick="toggleServer()">Servidor Desligado</button>
+            <button id="start-server" onclick="toggleServer()">Servidor Ligado</button>
             
             <div class="http-methods">
-                <button class="get">GET</button>
-                <button class="head">HEAD</button>
-                <button class="patch">PATCH</button>
-                <button class="put">PUT</button>
-                <button class="post">POST</button>
-                <button class="delete">DELETE</button>
-                <button class="options">OPTIONS</button>
-                <button class="trace">TRACE</button>
-                <button class="connect">CONNECT</button>
-                <button class="simulate" onclick="simulateRequest()">Simular</button>
+                <button class="http-method" onclick="selectMethod('GET')">GET</button>
+                <button class="http-method" onclick="selectMethod('HEAD')">HEAD</button>
+                <button class="http-method" onclick="selectMethod('PATCH')">PATCH</button>
+                <button class="http-method" onclick="selectMethod('PUT')">PUT</button>
+                <button class="http-method" onclick="selectMethod('POST')">POST</button>
+                <button class="http-method" onclick="selectMethod('DELETE')">DELETE</button>
+                <button class="http-method" onclick="selectMethod('OPTIONS')">OPTIONS</button>
+                <button class="http-method" onclick="selectMethod('TRACE')">TRACE</button>
+                <button class="http-method" onclick="selectMethod('CONNECT')">CONNECT</button>
+                <button class="simulate" id="simulate-btn" onclick="simulateRequest()" style="cursor: not-allowed;">Simular</button>
             </div>
 
             <div class="params">
