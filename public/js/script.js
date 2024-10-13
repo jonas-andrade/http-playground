@@ -1,4 +1,4 @@
-let serverOn = false;
+let serverOn = null;
 let selectedMethod = null;
 const serverButton = document.getElementById("start-server");
 const simulationBanner = document.getElementById("simulation-banner");
@@ -9,11 +9,12 @@ const resultsDiv = document.getElementById("results");
     document.addEventListener('DOMContentLoaded', async () => {
         try {
             const response = await fetch('http://localhost:3000/status');
-            if (!response.ok) { throw new Error(await response.text()); } // Pega o texto do erro
+            if (!response.ok) { throw new Error(await response.text()); } 
             const json = await response.json();
-            serverOn = json.isRunning; 
+            serverOn = json.isRunning;
         } catch (error) {
-           
+            
+            serverOn = false;
             console.error('Erro:', error);
             resultsDiv.innerHTML = `<p>Erro ao verificar o servidor:</p> <pre>${error.message}<pre/>`;    
            
@@ -28,22 +29,24 @@ const resultsDiv = document.getElementById("results");
     });
 
     function toggleServer() {
-
+        
         if (!serverOn) {
-            serverOn = true;
+           
             serverButton.textContent = "Servidor Ligado";
             serverButton.classList.remove("active");
             simulationBanner.style.display = "none"; // Esconde o banner
             simulateButton.style.cursor = "not-allowed"; // Cursor not-allowed
             selectedMethod = null; // Reseta método selecionado
             resetMethodButtons(); // Reseta as cores dos botões de método
+            
 
         }else {
-            serverOn = false;
+           serverOn = false;
             serverButton.textContent = "Servidor Desligado";
             serverButton.classList.add("active");
             simulationBanner.style.display = "block"; showBtnESC(); // Mostra o banner
             simulateButton.style.cursor = "pointer"; // Altera para pointer
+            
         }
     }
     function selectMethod(method) {
@@ -76,22 +79,34 @@ const resultsDiv = document.getElementById("results");
         const btn = document.createElement('button');
         btn.className = 'esc';
         btn.textContent = 'ESC';
-        btn.addEventListener('click', () => { 
-            let segCount = 20;
-            toggleServer();
-            if(serverOn===false){
+        banner.appendChild(btn);
+
+        
+        btn.addEventListener('click', () => {
+            
+            let segCount = 4;
+            
+            
+            if(serverOn==false){
+                toggleServer();
                 resultsDiv.innerHTML = `<pre class="warning"> <strong>warning:</strong> O servidor não está ligado! Em <strong>${segCount}</strong> segundos, o modo de simulação será ativado.</pre>`;
                 const intervalId = setInterval(()=>{
-                    if(--segCount<=20){
+                    if(--segCount<=4){
                         resultsDiv.innerHTML = `<pre class="warning"> <strong>warning:</strong> O servidor não está ligado! Em <strong>${segCount}</strong> segundos, o modo de simulação será ativado.</pre>`;
                     }
-                    if (segCount <= 0){clearInterval(intervalId);resultsDiv.innerHTML = `<p>Aguardando resposta...</p>`; toggleServer()}
+                    if (segCount <= 0){
+                        clearInterval(intervalId);
+                        resultsDiv.innerHTML = `<p>Aguardando resposta...</p>`;
+                        serverOn=true;
+                        toggleServer();
+                        serverOn=false;
+                        }
                 },1000);
                 
             }
 
          });
-        banner.appendChild(btn);
+       
     }
 
     // request simulado
