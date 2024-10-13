@@ -120,7 +120,6 @@ app.head('/distributions', (req, res) => {
     res.status(200).send(); // Não retorna corpo, apenas os cabeçalhos
 });
 
-
 let serverRunning = false; // Indica se o servidor está rodando
 
 // Rota para verificar o status do servidor
