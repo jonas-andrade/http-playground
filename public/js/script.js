@@ -1,5 +1,8 @@
-let serverOn = null;
+let serverOn = false;
 let selectedMethod = null;
+const serverButton = document.getElementById("start-server");
+const simulationBanner = document.getElementById("simulation-banner");
+const simulateButton = document.getElementById("simulate-btn");
 const resultsDiv = document.getElementById("results");
 
 
@@ -8,23 +11,23 @@ const resultsDiv = document.getElementById("results");
             const response = await fetch('http://localhost:3000/status');
             if (!response.ok) { throw new Error(await response.text()); } // Pega o texto do erro
             const json = await response.json();
-            serverOn = json.isRunning; console.log(`SERVIDOR DEFINIDO COMO: ${json.isRunning}:${serverOn}`)
+            serverOn = json.isRunning; 
         } catch (error) {
            
             console.error('Erro:', error);
-            resultsDiv.innerHTML = `<p>Erro ao verificar o servidor:</p> <pre>${error.message}<pre/>`;
+            resultsDiv.innerHTML = `<p>Erro ao verificar o servidor:</p> <pre>${error.message}<pre/>`;    
            
-            serverOn = true;
-            toggleServer();
-           
+            if(!serverOn){
+                serverButton.textContent = "Servidor Desligado";
+                serverButton.classList.add("active");
+                simulationBanner.style.display = "block"; showBtnESC(); // Mostra o banner
+                simulateButton.style.cursor = "pointer"; // Altera para pointer
+            }
+              
         }
     });
 
     function toggleServer() {
-
-        const serverButton = document.getElementById("start-server");
-        const simulationBanner = document.getElementById("simulation-banner");
-        const simulateButton = document.getElementById("simulate-btn");
 
         if (!serverOn) {
             serverOn = true;
@@ -76,7 +79,7 @@ const resultsDiv = document.getElementById("results");
         btn.addEventListener('click', () => { 
             let segCount = 20;
             toggleServer();
-            if(serverOn){
+            if(serverOn===false){
                 resultsDiv.innerHTML = `<pre class="warning"> <strong>warning:</strong> O servidor não está ligado! Em <strong>${segCount}</strong> segundos, o modo de simulação será ativado.</pre>`;
                 const intervalId = setInterval(()=>{
                     if(--segCount<=20){
