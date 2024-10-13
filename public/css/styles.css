@@ -186,3 +186,11 @@ button.simulate {
 #results::-webkit-scrollbar {
     display: none; /* para navegadores WebKit (Chrome, Safari) */
 }
+.warning {
+    /* background-color: #fff3cd; */
+    color: #856404; /* Texto dourado */
+    /* border: 1px solid #ffeeba; */
+    padding: 10px;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-family: Arial, sans-serif; /* Fonte */
+}

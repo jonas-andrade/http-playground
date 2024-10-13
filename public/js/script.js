@@ -10,8 +10,13 @@ const resultsDiv = document.getElementById("results");
             const json = await response.json();
             serverOn = json.isRunning; console.log(`SERVIDOR DEFINIDO COMO: ${json.isRunning}:${serverOn}`)
         } catch (error) {
+           
             console.error('Erro:', error);
-            resultsDiv.innerHTML = `<p>Erro ao verificar o servidor: ${error.message}</p>`;
+            resultsDiv.innerHTML = `<p>Erro ao verificar o servidor:</p> <pre>${error.message}<pre/>`;
+           
+            serverOn = true;
+            toggleServer();
+           
         }
     });
 
@@ -68,7 +73,21 @@ const resultsDiv = document.getElementById("results");
         const btn = document.createElement('button');
         btn.className = 'esc';
         btn.textContent = 'ESC';
-        btn.addEventListener('click', () => { toggleServer() });
+        btn.addEventListener('click', () => { 
+            let segCount = 20;
+            toggleServer();
+            if(serverOn){
+                resultsDiv.innerHTML = `<pre class="warning"> <strong>warning:</strong> O servidor não está ligado! Em <strong>${segCount}</strong> segundos, o modo de simulação será ativado.</pre>`;
+                const intervalId = setInterval(()=>{
+                    if(--segCount<=20){
+                        resultsDiv.innerHTML = `<pre class="warning"> <strong>warning:</strong> O servidor não está ligado! Em <strong>${segCount}</strong> segundos, o modo de simulação será ativado.</pre>`;
+                    }
+                    if (segCount <= 0){clearInterval(intervalId);resultsDiv.innerHTML = `<p>Aguardando resposta...</p>`; toggleServer()}
+                },1000);
+                
+            }
+
+         });
         banner.appendChild(btn);
     }
 
@@ -219,8 +238,7 @@ const resultsDiv = document.getElementById("results");
             alert(`Método: ${method}`);
         }
     }
-
-   
+ 
     function cleanner(div) {
         div.innerHTML = `...`;
     }
