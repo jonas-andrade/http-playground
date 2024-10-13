@@ -6,7 +6,7 @@ const PORT = 3000;
 // Middleware
 app.use(cors());
 app.use(express.json()); 
-
+app.use(express.static('public'));
 // Dados fictícios
 const distributions = [
     {
@@ -101,12 +101,10 @@ const distributions = [
     }
 ];
 
-
-
-
 app.get('/distributions', (req, res) => {
     res.json(distributions);
 });
+
 app.head('/distributions', (req, res) => {
     res.set({
         'Content-Type': 'application/json',
@@ -121,6 +119,20 @@ app.head('/distributions', (req, res) => {
     });
     res.status(200).send(); // Não retorna corpo, apenas os cabeçalhos
 });
+
+
+let serverRunning = false; // Indica se o servidor está rodando
+
+// Rota para verificar o status do servidor
+app.get('/status', (req, res) => {
+    if (serverRunning) {
+        return res.json({ status: 'running', isRunning: true });
+    }
+    res.status(404).json({ status: 'stopped', isRunning: false });
+});
+
+// Inicia o servidor Express
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
+    serverRunning = true; // Marca que o servidor está em execução
 });
