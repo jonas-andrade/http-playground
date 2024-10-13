@@ -31,7 +31,7 @@ const resultsDiv = document.getElementById("results");
     function toggleServer() {
         
         if (!serverOn) {
-           
+            serverOn = true;
             serverButton.textContent = "Servidor Ligado";
             serverButton.classList.remove("active");
             simulationBanner.style.display = "none"; // Esconde o banner
@@ -97,9 +97,10 @@ const resultsDiv = document.getElementById("results");
                     if (segCount <= 0){
                         clearInterval(intervalId);
                         resultsDiv.innerHTML = `<p>Aguardando resposta...</p>`;
-                        serverOn=true;
                         toggleServer();
-                        serverOn=false;
+                        // serverOn=false;
+                        
+                        
                         }
                 },1000);
                 
