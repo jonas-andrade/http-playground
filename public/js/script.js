@@ -228,3 +228,6 @@ const realRequest = async (method) => {
         alert(`Método: ${method}`);
     }
 }
+function cleanner(div) {
+    div.innerHTML = `...`;
+}
