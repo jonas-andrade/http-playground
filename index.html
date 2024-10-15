@@ -13,27 +13,26 @@
         </div>
         <div class="controls">
             <button id="start-server" onclick="toggleServer()">Servidor Ligado</button>
-            
             <div class="http-methods">
                 <button class="http-method" onclick="selectMethod('GET')">GET</button>
                 <button class="http-method" onclick="selectMethod('HEAD')">HEAD</button>
-                <button class="http-method" onclick="selectMethod('PATCH')">PATCH</button>
                 <button class="http-method" onclick="selectMethod('PUT')">PUT</button>
+                <button class="http-method" onclick="selectMethod('PATCH')">PATCH</button>
                 <button class="http-method" onclick="selectMethod('POST')">POST</button>
                 <button class="http-method" onclick="selectMethod('DELETE')">DELETE</button>
-                <button class="http-method" onclick="selectMethod('OPTIONS')">OPTIONS</button>
                 <button class="http-method" onclick="selectMethod('TRACE')">TRACE</button>
                 <button class="http-method" onclick="selectMethod('CONNECT')">CONNECT</button>
+                <button class="http-method" onclick="selectMethod('OPTIONS')">OPTIONS</button>
                 <button class="simulate" id="simulate-btn" onclick="simulateRequest()" style="cursor: not-allowed;">Simular</button>
             </div>
 
             <div class="params">
                 <label>Query Params:</label>
-                <input type="text" placeholder="Ex: ?name=John">
+                <input type="text" id="query-params" placeholder="Ex: ?name=John">
                 <label>Body Params:</label>
-                <input type="text" placeholder="Ex: { 'name': 'John' }">
+                <input type="text" id="body-params" placeholder="Ex: { 'name': 'John' }">
                 <label>Router Params:</label>
-                <input type="text" placeholder="Ex: /users/123">
+                <input type="text" id="router-params" placeholder="Ex: /users/123">
             </div>
             <div class="base-url">
                 <label>URL Base:</label>
@@ -41,8 +40,8 @@
             </div>
         </div>
         
-        <div class="output" >
-            <div id="results"  onclick="cleanner(this)">Aguardando resposta...</div>
+        <div class="output">
+            <div id="results" onclick="cleanner(this)">Aguardando resposta...</div>
         </div>
     </div>
     <script src="public/js/script.js"></script>
