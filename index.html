@@ -27,16 +27,117 @@
             </div>
 
             <div class="params">
-                <label>Query Params:</label>
-                <input type="text" id="query-params" placeholder="Ex: ?name=John">
-                <label>Body Params:</label>
-                <input type="text" id="body-params" placeholder="Ex: { 'name': 'John' }">
-                <label>Router Params:</label>
-                <input type="text" id="router-params" placeholder="Ex: /users/123">
+                <input type="text" id="query-router-params" placeholder=" Ex: /users/123 ou  ?name=John">
+                <textarea style="display: block;" rows="10" cols="30"   name="body-params" placeholder="Ex: { 'name': 'John' }" spellcheck="false"></textarea>
+                <form style="display: none;"  class="json-object">
+                    <div class="json-pair">
+                        <label for="name"><pre>"name":</pre></label>
+                        <select id="name" name="name" required>
+                            <option value="" disabled selected>Selecione uma distribuição</option>
+                            <option value="Ubuntu">Ubuntu</option>
+                            <option value="Fedora">Fedora</option>
+                            <option value="Arch Linux">Arch Linux</option>
+                            <option value="Debian">Debian</option>
+                            <option value="CentOS">CentOS</option>
+                            <option value="openSUSE">openSUSE</option>
+                            <option value="Linux Mint">Linux Mint</option>
+                            <option value="Manjaro">Manjaro</option>
+                            <option value="Zorin OS">Zorin OS</option>
+                            <option value="Kali Linux">Kali Linux</option>
+                            <option value="Example Linux">Example Linux</option>
+                        </select>
+                    </div>
+                    <div class="json-pair">
+                        <label for="version"><pre>"version":</pre></label>
+                        <select id="version" name="version" required>
+                            <option value="" disabled selected>Selecione uma versão</option>
+                            <option value="22.04 LTS">22.04 LTS</option>
+                            <option value="36">36</option>
+                            <option value="latest">latest</option>
+                            <option value="11 (Bullseye)">11 (Bullseye)</option>
+                            <option value="Stream 9">Stream 9</option>
+                            <option value="Leap 15.4">Leap 15.4</option>
+                            <option value="21">21</option>
+                            <option value="21.3">21.3</option>
+                            <option value="16">16</option>
+                            <option value="2023.1">2023.1</option>
+                            <option value="1.0">1.0</option>
+                        </select>
+                    </div>
+                    <div class="json-pair">
+                        <label for="type"><pre>"type":</pre></label>
+                        <select id="type" name="type" required>
+                            <option value="" disabled selected>Selecione um tipo</option>
+                            <option value="Debian-based">Debian-based</option>
+                            <option value="RPM-based">RPM-based</option>
+                            <option value="Rolling release">Rolling release</option>
+                            <option value="Arch-based">Arch-based</option>
+                            <option value="Ubuntu-based">Ubuntu-based</option>
+                            <option value="Independent">Independent</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="json-pair">
+                        <label for="description"><pre>"description":</pre></label>
+                        <select id="description" name="description" required>
+                            <option value="" disabled selected>Selecione uma descrição</option>
+                            <option value="Fácil de usar com muitos softwares.">Fácil de usar com muitos softwares.</option>
+                            <option value="Distribuição leve e rápida.">Distribuição leve e rápida.</option>
+                            <option value="Ideal para servidores.">Ideal para servidores.</option>
+                            <option value="Alta personalização e controle.">Alta personalização e controle.</option>
+                            <option value="Distribuição de exemplo.">Distribuição de exemplo.</option>
+                        </select>
+                    </div>
+                    <div class="json-pair">
+                        <label for="official_website"><pre>"official_website":</pre></label>
+                        <select id="official_website" name="official_website" required>
+                            <option value="" disabled selected>Selecione um site oficial</option>
+                            <option value="https://ubuntu.com/">https://ubuntu.com/</option>
+                            <option value="https://getfedora.org/">https://getfedora.org/</option>
+                            <option value="https://archlinux.org/">https://archlinux.org/</option>
+                            <option value="https://www.debian.org/">https://www.debian.org/</option>
+                            <option value="https://www.centos.org/">https://www.centos.org/</option>
+                            <option value="https://www.opensuse.org/">https://www.opensuse.org/</option>
+                            <option value="https://linuxmint.com/">https://linuxmint.com/</option>
+                            <option value="https://manjaro.org/">https://manjaro.org/</option>
+                            <option value="https://zorinos.com/">https://zorinos.com/</option>
+                            <option value="https://www.kali.org/">https://www.kali.org/</option>
+                            <option value="https://example.com/">https://example.com/</option>
+                        </select>
+                    </div>
+                    <div class="json-pair">
+                        <label for="notable_packages"><pre>"notable_packages":</pre></label>
+                        <select id="notable_packages" name="notable_packages" required>
+                            <option value="" disabled selected>Selecione um pacote</option>
+                            <option value="GIMP">GIMP</option>
+                            <option value="LibreOffice">LibreOffice</option>
+                            <option value="VLC">VLC</option>
+                            <option value="Docker">Docker</option>
+                            <option value="Pacman">Pacman</option>
+                            <option value="Systemd">Systemd</option>
+                            <option value="Apache">Apache</option>
+                            <option value="Nginx">Nginx</option>
+                            <option value="MySQL">MySQL</option>
+                            <option value="MariaDB">MariaDB</option>
+                            <option value="SELinux">SELinux</option>
+                            <option value="Kubernetes">Kubernetes</option>
+                            <option value="YaST">YaST</option>
+                            <option value="Cinnamon">Cinnamon</option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Pamac">Pamac</option>
+                            <option value="Wine">Wine</option>
+                            <option value="Metasploit">Metasploit</option>
+                            <option value="Nmap">Nmap</option>
+                            <option value="Burp Suite">Burp Suite</option>
+                            <option value="ExampleApp">ExampleApp</option>
+                        </select>
+                    </div>
+                    
+                </form>
             </div>
             <div class="base-url">
-                <label>URL Base:</label>
-                <input type="text" value="http://localhost:8080" readonly>
+                <input type="button" value="Chave/Valor" style="margin: 0 10px;">      
+                <input type="text" value="HTTP://127.0.0.1:3000/" readonly >
             </div>
         </div>
         

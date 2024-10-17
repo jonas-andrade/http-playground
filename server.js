@@ -37,8 +37,14 @@ app.get('/api/distributions', (req, res) => {
 // Rota para obter uma distribuição pelo ID
 app.get('/api/distributions/:id', (req, res) => {
     const distributions = loadData();
-    const distribution = distributions.find(d => d.id === parseInt(req.params.id));
+    const id = parseInt(req.params.id);
+
+    // Verificação de validade do id
+    if (isNaN(id)) return res.status(400).send('ID inválido.');
+
+    const distribution = distributions.find(d => d.id === id);
     if (!distribution) return res.status(404).send('Distribuição não encontrada.');
+
     res.json(distribution);
 });
 
@@ -80,7 +86,21 @@ app.delete('/api/distributions/:id', (req, res) => {
     res.status(204).send();
 });
 
+app.head('/api/distributions/:id', (req, res) => {
+    const distributions = loadData();
+    const distribution = distributions.find(d => d.id === parseInt(req.params.id));
 
+    if (!distribution) {
+        return res.status(404).send('Distribuição não encontrada.');
+    }
+
+    res.set({
+        'Content-Type': 'application/json',
+        'Content-Length': JSON.stringify(distribution).length,
+        'Last-Modified': new Date().toUTCString(),
+        'ETag': 'abc123' // Gerar um ETag único conforme necessário
+    }).status(200).send();
+});
 
 
 
