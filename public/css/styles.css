@@ -214,7 +214,22 @@ textarea[name='body-params']::placeholder {
     outline: none;                     /* Remove contorno padrão */
 }
 
-
+p.request{
+    color: #856404; /* Cor de um tom de amarelo-escuro para requisições */
+    font-weight: bold; /* Negrito para destacar */
+    background-color: #fff3cd; /* Um fundo leve para dar destaque */
+    padding: 10px; /* Espaçamento interno para melhor legibilidade */
+    border-left: 4px solid #856404; /* Borda à esquerda para visualização */
+    border-radius: 4px; /* Cantos arredondados para suavizar */
+}
+p.response{
+    color: #721c24; /* Cor de um tom de vermelho escuro para respostas */
+    font-weight: bold; /* Negrito para destacar */
+    background-color: #f8d7da; /* Um fundo leve para dar destaque */
+    padding: 10px; /* Espaçamento interno para melhor legibilidade */
+    border-left: 4px solid #721c24; /* Borda à esquerda para visualização */
+    border-radius: 4px; /* Cantos arredondados para suavizar */
+}
 
 
 /* resulta */
