@@ -1,11 +1,5 @@
 # HTTP Playground
 
-🌐 **English** | 🇧🇷 **Português**
-
-**HTTP Playground:** ambiente interativo, análise de protocolos HTTP e tráfego, exploração de métodos e códigos de status, manipulação de requisições, configuração de proxies, autenticação e roteamento.
-
-## 🌐 HTTP Playground (English)
-
 **HTTP Playground** is an interactive environment designed for exploring and analyzing the HTTP protocol. It allows you to manipulate requests, configure proxies, authentication, and routing, as well as investigate HTTP methods and status codes in real time.
 
 ### Key Features
