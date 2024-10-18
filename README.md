@@ -22,7 +22,7 @@ For security reasons, **HTTP Playground** does not use a real database. Instead,
 
 To enable real HTTP requests, you'll need to run a local server. Start the server by executing the following command in the project's root directory:
 
-    ```bash
+    ```
     node server.js
     
 > **Note:** Due to security constraints, it is not possible to run a real server directly from the client interface.
