@@ -24,6 +24,7 @@ To enable real HTTP requests, you'll need to run a local server. Start the serve
 
     ```bash
     node server.js
+    
 > **Note:** Due to security constraints, it is not possible to run a real server directly from the client interface.
 
 ### Demo
