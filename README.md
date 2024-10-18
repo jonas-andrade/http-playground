@@ -29,7 +29,7 @@ To enable real HTTP requests, you'll need to run a local server. Start the serve
 ### Demo
 
 Watch the demo video to see the **HTTP Playground** in action:  
-[Demo](./public/assets/output.gif)
+![Demo](./public/assets/output.gif)
 
 This video showcases the main features and how to interact with the environment.
 
