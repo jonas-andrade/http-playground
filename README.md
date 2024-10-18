@@ -29,7 +29,7 @@ node server.js
 ### Demo
 
 Watch the demo video to see the **HTTP Playground** in action:  
-[Demo](./public/assets/demo.mp4)
+[Demo](./public/assets/demo.gif)
 
 This video showcases the main features and how to interact with the environment.
 
