@@ -24,12 +24,13 @@ To enable real HTTP requests, you'll need to run a local server. Start the serve
 
 ```bash
 node server.js
+
 > **Note:** Due to security constraints, it is not possible to run a real server directly from the client interface.
 
 ### Demo
 
 Watch the demo video to see the **HTTP Playground** in action:  
-[Demo](./public/assets/demo.gif)
+[Demo](./public/assets/output.gif)
 
 This video showcases the main features and how to interact with the environment.
 
